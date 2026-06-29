@@ -1,6 +1,6 @@
 {
   "name": "Cinematic Video Hero Section",
-  "description": "A single-page hero section featuring a fullscreen looping background video, glassmorphic navigation, and elegant cinematic typography.",
+  "description": "A single-page hero section featuring a fullscreen looping background video, glassmorphic navigation, an interactive Stephen Curry AI chatbot, and elegant cinematic typography.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

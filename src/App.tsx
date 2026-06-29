@@ -26,6 +26,9 @@ import {
   Upload,
   Link as LinkIcon
 } from 'lucide-react';
+import PlayableGames from './components/PlayableGames';
+import CurryAI from './components/CurryAI';
+import MeAIChat from './components/MeAIChat';
 
 export default function App() {
   const [activeLink, setActiveLink] = useState('Home');
@@ -34,6 +37,9 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  
+  // Playable game state
+  const [activePlayGame, setActivePlayGame] = useState<string | null>(null);
   
   // Custom interactive Rose Sunset state - false by default so it's not scary or shocking!
   const [isRedMode, setIsRedMode] = useState(false);
@@ -161,7 +167,7 @@ export default function App() {
     }, 400);
   };
 
-  const navLinks = ['Home', 'About Me', 'Contact Me', 'My Games', 'My Story'];
+  const navLinks = ['Home', 'About Me', 'Contact Me', '🤖 My Idol', 'My Games', 'My Story'];
 
   const featuredGames = [
     {
@@ -627,69 +633,96 @@ export default function App() {
           </div>
         )}
 
+        {/* TAB 3.5: STEPHEN CURRY AI */}
+        {activeLink === '🤖 My Idol' && (
+          <CurryAI isRedMode={isRedMode} />
+        )}
+
         {/* TAB 4: MY GAMES */}
         {activeLink === 'My Games' && (
           <div id="games-view" className="w-full max-w-5xl mx-auto text-left animate-fade-rise flex flex-col gap-6">
-            <div className="flex flex-col gap-1 items-center text-center">
-              <span className="text-xs font-mono tracking-widest text-white/40 uppercase flex items-center gap-1.5 mb-1.5">
-                <Gamepad2 className={`w-4 h-4 ${isRedMode ? 'text-red-500' : ''}`} /> The Interactive Artifacts
-              </span>
-              <h2 className="text-5xl text-foreground font-normal" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                Interactive Creations
-              </h2>
-              <p className="text-sm text-white/60 max-w-2xl mt-1">
-                Explore the atmospheric worlds crafted by a 16-year-old developer. Immersive environments with rich mechanical details.
-              </p>
-            </div>
-
-            {/* Interactive Game Showcase Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              {featuredGames.map((game, idx) => (
-                <div
-                  key={idx}
-                  className={`liquid-glass rounded-3xl p-6 border flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:shadow-lg ${
-                    isRedMode 
-                      ? 'border-red-500/20 bg-red-950/5 shadow-red-500/5' 
-                      : 'border-white/10 bg-white/5 shadow-white/5'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between text-[10px] font-mono text-white/40 mb-4">
-                      <span>EST: {game.year}</span>
-                      <span className={`px-2 py-0.5 rounded border ${isRedMode ? 'bg-red-950/20 border-red-500/20 text-red-400' : 'bg-white/5 border-white/5 text-white/80'}`}>{game.status}</span>
-                    </div>
-
-                    <h3 className="text-2xl font-normal text-white mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                       {game.title}
-                    </h3>
-
-                    <span className={`text-xs font-mono mb-4 block ${isRedMode ? 'text-red-500/80' : 'text-sky-300/80'}`}>
-                      {game.genre}
-                    </span>
-
-                    <p className="text-xs text-white/60 leading-relaxed font-sans mt-3">
-                      {game.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-white/5 flex flex-col gap-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {game.platforms.map((plat) => (
-                        <span key={plat} className={`text-[9px] font-mono border px-2 py-0.5 rounded ${isRedMode ? 'bg-red-950/10 border-red-500/10 text-red-400/50' : 'bg-white/5 border-white/10 text-white/50'}`}>
-                          {plat}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+            {activePlayGame ? (
+              <PlayableGames 
+                gameTitle={activePlayGame} 
+                onClose={() => setActivePlayGame(null)} 
+                isRedMode={isRedMode} 
+              />
+            ) : (
+              <>
+                <div className="flex flex-col gap-1 items-center text-center">
+                  <span className="text-xs font-mono tracking-widest text-white/40 uppercase flex items-center gap-1.5 mb-1.5">
+                    <Gamepad2 className={`w-4 h-4 ${isRedMode ? 'text-red-500' : ''}`} /> The Interactive Artifacts
+                  </span>
+                  <h2 className="text-5xl text-foreground font-normal" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                    Interactive Creations
+                  </h2>
+                  <p className="text-sm text-white/60 max-w-2xl mt-1">
+                    Explore the atmospheric worlds crafted by a 16-year-old developer. Immersive environments with rich mechanical details.
+                  </p>
                 </div>
-              ))}
-            </div>
 
-            <div className="text-center mt-6">
-              <p className="text-xs font-mono text-white/30 uppercase tracking-widest">
-                MORE EXPERIMENTS LAUNCHING SOON / UNREAL ENGINE 5 & WEBGL ENGINE COMPATIBLE
-              </p>
-            </div>
+                {/* Interactive Game Showcase Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                  {featuredGames.map((game, idx) => (
+                    <div
+                      key={idx}
+                      className={`liquid-glass rounded-3xl p-6 border flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:shadow-lg ${
+                        isRedMode 
+                          ? 'border-red-500/20 bg-red-950/5 shadow-red-500/5' 
+                          : 'border-white/10 bg-white/5 shadow-white/5'
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between text-[10px] font-mono text-white/40 mb-4">
+                          <span>EST: {game.year}</span>
+                          <span className={`px-2 py-0.5 rounded border ${isRedMode ? 'bg-red-950/20 border-red-500/20 text-red-400' : 'bg-white/5 border-white/5 text-white/80'}`}>{game.status}</span>
+                        </div>
+
+                        <h3 className="text-2xl font-normal text-white mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                           {game.title}
+                        </h3>
+
+                        <span className={`text-xs font-mono mb-4 block ${isRedMode ? 'text-red-500/80' : 'text-sky-300/80'}`}>
+                          {game.genre}
+                        </span>
+
+                        <p className="text-xs text-white/60 leading-relaxed font-sans mt-3">
+                          {game.desc}
+                        </p>
+                      </div>
+
+                      <div className="mt-8 pt-4 border-t border-white/5 flex flex-col gap-3">
+                        <div className="flex flex-wrap gap-1.5 font-mono">
+                          {game.platforms.map((plat) => (
+                            <span key={plat} className={`text-[9px] border px-2 py-0.5 rounded ${isRedMode ? 'bg-red-950/10 border-red-500/10 text-red-400/50' : 'bg-white/5 border-white/10 text-white/50'}`}>
+                              {plat}
+                            </span>
+                          ))}
+                        </div>
+
+                        <button
+                          onClick={() => setActivePlayGame(game.title)}
+                          className={`w-full py-2.5 rounded-xl font-mono text-[10px] font-bold tracking-widest uppercase transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 ${
+                            isRedMode
+                              ? 'bg-red-500 hover:bg-red-400 text-white shadow-[0_0_10px_rgba(239,68,68,0.2)]'
+                              : 'bg-white/10 hover:bg-white/20 text-white border border-white/10 hover:border-white/20'
+                          }`}
+                        >
+                          <Play className="w-3 h-3 fill-current" />
+                          <span>ТОГЛОХ / PLAY IN BROWSER</span>
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-center mt-6">
+                  <p className="text-xs font-mono text-white/30 uppercase tracking-widest">
+                    MORE EXPERIMENTS LAUNCHING SOON / UNREAL ENGINE 5 & WEBGL ENGINE COMPATIBLE
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         )}
 
@@ -977,6 +1010,9 @@ export default function App() {
           </div>
         </div>
       )}
+      
+      {/* Messenger-style floating icon helper (Me-AI) */}
+      <MeAIChat />
     </div>
   );
 }
