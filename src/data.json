@@ -42,7 +42,7 @@
       "answer": "Attack on Titan",
       "answers": ["attack on titan", "shingeki no kyojin", "титан", "атака титанов", "eren", "эрэн"],
       "options": ["Death Note", "Attack on Titan", "Fullmetal Alchemist", "One Piece"],
-      "image": "https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?q=80&w=800&auto=format&fit=crop",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgYzs-2ofly7MiM3DtuTBWO5XTMiY5owvs8uHidmI5lzquqtEpsF9wyXhj&s=10",
       "video": "https://www.youtube.com/embed/LHtdkW8asS4"
     },
     {
@@ -51,7 +51,7 @@
       "answer": "Death Note",
       "answers": ["death note", "deathnote", "үхлийн тэмдэглэл", "l", "light", "лайт"],
       "options": ["Death Note", "Bleach", "Jujutsu Kaisen", "Naruto"],
-      "image": "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=800&auto=format&fit=crop",
+      "image": "https://m.media-amazon.com/images/I/81+JKoSTQgL._AC_UF1000,1000_QL80_.jpg",
       "video": "https://www.youtube.com/embed/N3i_7_m95wM"
     },
     {
@@ -60,7 +60,7 @@
       "answer": "Jujutsu Kaisen",
       "answers": ["jujutsu kaisen", "jjk", "жужуцу кайсен", "gojo", "гожо"],
       "options": ["Demon Slayer", "Jujutsu Kaisen", "My Hero Academia", "Bleach"],
-      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReuoGJ48mIC_ZiAoDLV_y18pnwuYSzmT6kz9saXuflWtkwNbFP8OAeYNq6&s=10",
       "video": "https://www.youtube.com/embed/O8gZby9506E"
     },
     {
@@ -69,7 +69,7 @@
       "answer": "My Hero Academia",
       "answers": ["my hero academia", "boku no hero academia", "миний баатрын академи", "deku", "деку"],
       "options": ["My Hero Academia", "One Piece", "Attack on Titan", "Hunter x Hunter"],
-      "image": "https://images.unsplash.com/photo-1601987177651-8edfe6c20009?q=80&w=800&auto=format&fit=crop",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8DLhf919xQSQBDrLBLGTni2uqPCgRhlpW31Re5_HP98zi_EA6U8-RoSWh&s=10",
       "video": "https://www.youtube.com/embed/EP_UTo2C6sc"
     },
     {
@@ -78,7 +78,7 @@
       "answer": "Hunter x Hunter",
       "answers": ["hunter x hunter", "hxh", "ангууч", "хантер хантер", "gon", "гон"],
       "options": ["Naruto", "One Piece", "Hunter x Hunter", "Death Note"],
-      "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+      "image": "https://upload.wikimedia.org/wikipedia/en/8/82/Hunter_%C3%97_Hunter_%282011%29.png",
       "video": "https://www.youtube.com/embed/d6kBeJjO09A"
     },
     {
@@ -87,7 +87,7 @@
       "answer": "Fullmetal Alchemist",
       "answers": ["fullmetal alchemist", "fma", "металл алхимич", "алхимич", "edward", "эдвард"],
       "options": ["Fullmetal Alchemist", "Dragon Ball Z", "Demon Slayer", "Bleach"],
-      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0eKUoQYj3W0hB1XkKcrXYnws8KWk4RCOaR_SB2qQmty7jVKq-sqVeVJY&s=10",
       "video": "https://www.youtube.com/embed/dqS9g9oA87Y"
     }
   ],
