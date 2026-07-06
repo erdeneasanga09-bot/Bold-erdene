@@ -1,0 +1,141 @@
+{
+  "emojiQuiz": [
+    {
+      "id": 1,
+      "emojis": "🏴‍☠️🍖👒",
+      "answer": "One Piece",
+      "answers": ["one piece", "onepiece", "ван пийс", "ванпийс", "luffy", "луффи"],
+      "options": ["One Piece", "Naruto", "Bleach", "Dragon Ball"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJdzguYJu2D5aKnSpOCXTIh5zu8Y6iSAuzVGrliZ_rMQ&s=10",
+      "video": "https://www.youtube.com/watch?v=3Gmo0EXHyKg"
+    },
+    {
+      "id": 2,
+      "emojis": "🦊🍜🍥",
+      "answer": "Naruto",
+      "answers": ["naruto", "наруто", "uzumaki", "узумаки"],
+      "options": ["Naruto", "Dragon Ball", "Jujutsu Kaisen", "One Piece"],
+      "image": "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/narutobigger.png",
+      "video": "https://www.youtube.com/watch?v=22R0j8UKRzY"
+    },
+    {
+      "id": 3,
+      "emojis": "👹⚔️🎋",
+      "answer": "Demon Slayer",
+      "answers": ["demon slayer", "demonslayer", "kimetsu no yaiba", "кимецу но яиба", "үхэлгүйчүүдийг дарагч", "tanjiro", "танжиро"],
+      "options": ["My Hero Academia", "Demon Slayer", "Attack on Titan", "Hunter x Hunter"],
+      "image": "https://static.toiimg.com/thumb/msid-107907968,width-1280,height-720,resizemode-4/107907968.jpg",
+      "video": "https://www.youtube.com/watch?v=VQGCKyvzIM4"
+    },
+    {
+      "id": 4,
+      "emojis": "🐉🟠⚡",
+      "answer": "Dragon Ball Z",
+      "answers": ["dragon ball", "dragon ball z", "goku", "драгонбол", "драгон бол", "гоку"],
+      "options": ["Dragon Ball Z", "Bleach", "Naruto", "Jujutsu Kaisen"],
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/c9295bf92a8c87f865116be60daa6a31509823c8c11da3fcbc5a6dc589ff9da2.jpg",
+      "video": "https://www.youtube.com/watch?v=BVW_kMs5vmo"
+    },
+    {
+      "id": 5,
+      "emojis": "🧱🗡️🧗‍♂️",
+      "answer": "Attack on Titan",
+      "answers": ["attack on titan", "shingeki no kyojin", "титан", "атака титанов", "eren", "эрэн"],
+      "options": ["Death Note", "Attack on Titan", "Fullmetal Alchemist", "One Piece"],
+      "image": "https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/LHtdkW8asS4"
+    },
+    {
+      "id": 6,
+      "emojis": "🍎📓💀",
+      "answer": "Death Note",
+      "answers": ["death note", "deathnote", "үхлийн тэмдэглэл", "l", "light", "лайт"],
+      "options": ["Death Note", "Bleach", "Jujutsu Kaisen", "Naruto"],
+      "image": "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/N3i_7_m95wM"
+    },
+    {
+      "id": 7,
+      "emojis": "🤞🕶️😈",
+      "answer": "Jujutsu Kaisen",
+      "answers": ["jujutsu kaisen", "jjk", "жужуцу кайсен", "gojo", "гожо"],
+      "options": ["Demon Slayer", "Jujutsu Kaisen", "My Hero Academia", "Bleach"],
+      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/O8gZby9506E"
+    },
+    {
+      "id": 8,
+      "emojis": "🥦🦸‍♂️💥",
+      "answer": "My Hero Academia",
+      "answers": ["my hero academia", "boku no hero academia", "миний баатрын академи", "deku", "деку"],
+      "options": ["My Hero Academia", "One Piece", "Attack on Titan", "Hunter x Hunter"],
+      "image": "https://images.unsplash.com/photo-1601987177651-8edfe6c20009?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/EP_UTo2C6sc"
+    },
+    {
+      "id": 9,
+      "emojis": "🎣🕷️⚡",
+      "answer": "Hunter x Hunter",
+      "answers": ["hunter x hunter", "hxh", "ангууч", "хантер хантер", "gon", "гон"],
+      "options": ["Naruto", "One Piece", "Hunter x Hunter", "Death Note"],
+      "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/d6kBeJjO09A"
+    },
+    {
+      "id": 10,
+      "emojis": "🦾🪙🔥",
+      "answer": "Fullmetal Alchemist",
+      "answers": ["fullmetal alchemist", "fma", "металл алхимич", "алхимич", "edward", "эдвард"],
+      "options": ["Fullmetal Alchemist", "Dragon Ball Z", "Demon Slayer", "Bleach"],
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop",
+      "video": "https://www.youtube.com/embed/dqS9g9oA87Y"
+    }
+  ],
+  "characterQuiz": [
+    {
+      "id": 1,
+      "characterImage": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/10/luffy-new-power-up.png?w=1200&h=628&fit=crop",
+      "answer": "Luffy",
+      "answers": ["luffy", "monkey d luffy", "луффи", "луфи"],
+      "options": ["Luffy", "Zoro", "Sanji", "Ace"],
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/10/luffy-new-power-up.png?w=1200&h=628&fit=crop",
+      "video": "https://www.youtube.com/watch?v=nhr0igKYIMQ"
+    },
+    {
+      "id": 2,
+      "characterImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1IDTAjf5dRJD4bBcXwGHJ6UtZcgdce1ta8y46swbSvQ&s=10",
+      "answer": "Naruto",
+      "answers": ["naruto", "uzumaki", "наруто"],
+      "options": ["Sasuke", "Naruto", "Kakashi", "Itachi"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1IDTAjf5dRJD4bBcXwGHJ6UtZcgdce1ta8y46swbSvQ&s=10",
+      "video": "https://www.youtube.com/watch?v=GOBZIdBKaHw"
+    },
+    {
+      "id": 3,
+      "characterImage": "https://preview.redd.it/why-is-tanjiro-so-special-v0-xpwq8ewu7hif1.jpeg?auto=webp&s=5dd95451b63840840719dc9e373c6312e1aac7c1",
+      "answer": "Tanjiro",
+      "answers": ["tanjiro", "tanjiro kamado", "танжиро", "каммадо танжиро"],
+      "options": ["Inosuke", "Zenitsu", "Tanjiro", "Nezuko"],
+      "image": "https://preview.redd.it/why-is-tanjiro-so-special-v0-xpwq8ewu7hif1.jpeg?auto=webp&s=5dd95451b63840840719dc9e373c6312e1aac7c1",
+      "video": "https://www.youtube.com/watch?v=h9DMv7ChSHo"
+    },
+    {
+      "id": 4,
+      "characterImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkE4vy9VFXGlVObhKcmjVqSnyB3iPmN3k7srEBTnVyJw&s",
+      "answer": "Goku",
+      "answers": ["goku", "son goku", "гоку", "супер саяан"],
+      "options": ["Vegeta", "Goku", "Gohan", "Frieza"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkE4vy9VFXGlVObhKcmjVqSnyB3iPmN3k7srEBTnVyJw&s",
+      "video": "https://www.youtube.com/watch?v=hYYXfLdpuds"
+    },
+    {
+      "id": 5,
+      "characterImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-VKRZ6pX5toyJwJEMdDedpP69OFpr9c22RFy78BHfDurEdvxNoi59rpx7&s=10",
+      "answer": "Eren",
+      "answers": ["eren", "eren yeager", "эрэн", "эрэн егэр"],
+      "options": ["Eren", "Mikasa", "Levi", "Armin"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-VKRZ6pX5toyJwJEMdDedpP69OFpr9c22RFy78BHfDurEdvxNoi59rpx7&s=10",
+      "video": "https://www.youtube.com/watch?v=pdJ49LOzapQ"
+    }
+  ]
+}

@@ -17,6 +17,7 @@ import {
   Sparkles,
   Gamepad
 } from 'lucide-react';
+import AnimeGuesser from './AnimeGuesser';
 
 interface PlayableGamesProps {
   gameTitle: string;
@@ -55,6 +56,7 @@ export default function PlayableGames({ gameTitle, onClose, isRedMode }: Playabl
       {gameTitle === "Atmosphere: Zero" && <AtmosphereZeroGame isRedMode={isRedMode} />}
       {gameTitle === "Mirage City" && <MirageCityGame isRedMode={isRedMode} />}
       {gameTitle === "Silence of the Horizon" && <SilenceHorizonGame isRedMode={isRedMode} />}
+      {gameTitle === "Anime Guesser" && <AnimeGuesser isRedMode={isRedMode} />}
     </div>
   );
 }

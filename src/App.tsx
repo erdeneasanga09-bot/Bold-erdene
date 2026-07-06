@@ -197,6 +197,15 @@ export default function App() {
       status: "Prototyping Stage",
       hue: "border-red-500/20 shadow-red-500/5",
     },
+    {
+      title: "Anime Guesser",
+      genre: "Interactive Anime Quiz",
+      year: "2026",
+      desc: "Аниме сонирхогчдод зориулсан эможи болон баатрын дүр таах хөгжөөнт тоглоом. Зөв хариулбал бонус оноо цуглуулж амьд үлдээрэй!",
+      platforms: ["WebGL", "Mobile Friendly"],
+      status: "New Release",
+      hue: "border-yellow-500/30 shadow-yellow-500/5",
+    },
   ];
 
   return (
