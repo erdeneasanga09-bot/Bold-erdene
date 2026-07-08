@@ -64,6 +64,7 @@ export default function App() {
   const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
   const [customUrl, setCustomUrl] = useState('');
   const [showUrlInput, setShowUrlInput] = useState(false);
+  const [activeMusicSource, setActiveMusicSource] = useState<'helix' | 'suno'>('suno');
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -71,7 +72,7 @@ export default function App() {
   // Music Player Side Effects
   useEffect(() => {
     if (audioRef.current) {
-      if (isPlaying) {
+      if (isPlaying && activeMusicSource === 'helix') {
         audioRef.current.play().catch(e => {
           console.log("Audio play blocked or error:", e);
           setIsPlaying(false);
@@ -80,7 +81,7 @@ export default function App() {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, audioSource]);
+  }, [isPlaying, audioSource, activeMusicSource]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -167,7 +168,7 @@ export default function App() {
     }, 400);
   };
 
-  const navLinks = ['Home', 'About Me', 'Contact Me', '🤖 My Idol', 'My Games', 'My Story'];
+  const navLinks = ['Home', 'About Me', 'Contact Me', '🤖 My Idol', 'My Games', 'My Story', '⌨️ Typeracer'];
 
   const featuredGames = [
     {
@@ -255,28 +256,44 @@ export default function App() {
 
           {/* Core Navigation menu */}
           <div id="desktop-links" className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <button
-                key={link}
-                id={`nav-${link.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => setActiveLink(link)}
-                className={`text-sm tracking-wide transition-all duration-300 relative py-1 cursor-pointer font-medium ${
-                  activeLink === link
-                    ? 'text-foreground font-semibold scale-102'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                {link}
-                {activeLink === link && (
-                  <span
-                    id={`active-indicator-${link.toLowerCase().replace(/\s+/g, '-')}`}
-                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full animate-pulse transition-all duration-500 ${
-                      isRedMode ? 'bg-red-500 shadow-[0_0_10px_#ff0000]' : 'bg-white shadow-[0_0_8px_#ffffff]'
-                    }`}
-                  />
-                )}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              if (link === '⌨️ Typeracer') {
+                return (
+                  <a
+                    key={link}
+                    id="nav-typeracer"
+                    href="https://typer-sage.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm tracking-wide transition-all duration-300 relative py-1 cursor-pointer font-medium text-white/60 hover:text-white"
+                  >
+                    {link}
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={link}
+                  id={`nav-${link.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={() => setActiveLink(link)}
+                  className={`text-sm tracking-wide transition-all duration-300 relative py-1 cursor-pointer font-medium ${
+                    activeLink === link
+                      ? 'text-foreground font-semibold scale-102'
+                      : 'text-white/60 hover:text-white'
+                  }`}
+                >
+                  {link}
+                  {activeLink === link && (
+                    <span
+                      id={`active-indicator-${link.toLowerCase().replace(/\s+/g, '-')}`}
+                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full animate-pulse transition-all duration-500 ${
+                        isRedMode ? 'bg-red-500 shadow-[0_0_10px_#ff0000]' : 'bg-white shadow-[0_0_8px_#ffffff]'
+                      }`}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {/* Desktop Right action items (Red theme switch & Contact CTA) */}
@@ -343,23 +360,40 @@ export default function App() {
             id="mobile-menu-dropdown"
             className="absolute top-full left-0 right-0 mx-6 mt-1 rounded-3xl liquid-glass border border-white/10 z-50 p-6 flex flex-col gap-4 animate-fade-rise"
           >
-            {navLinks.map((link) => (
-              <button
-                key={link}
-                id={`mobile-nav-${link.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => {
-                  setActiveLink(link);
-                  setMobileMenuOpen(false);
-                }}
-                className={`text-left text-lg py-2 transition-all duration-200 border-b border-white/5 last:border-b-0 ${
-                  activeLink === link
-                    ? 'text-foreground font-semibold pl-2 border-l-2 border-white'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {link}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              if (link === '⌨️ Typeracer') {
+                return (
+                  <a
+                    key={link}
+                    id="mobile-nav-typeracer"
+                    href="https://typer-sage.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-left text-lg py-2 transition-all duration-200 border-b border-white/5 last:border-b-0 text-muted-foreground hover:text-white"
+                  >
+                    {link}
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={link}
+                  id={`mobile-nav-${link.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={() => {
+                    setActiveLink(link);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`text-left text-lg py-2 transition-all duration-200 border-b border-white/5 last:border-b-0 ${
+                    activeLink === link
+                      ? 'text-foreground font-semibold pl-2 border-l-2 border-white'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {link}
+                </button>
+              );
+            })}
             <button
               id="mobile-cta-begin-journey"
               onClick={() => {
@@ -513,6 +547,42 @@ export default function App() {
                 </button>
               </div>
 
+            </div>
+
+            {/* Suno Audio Anthem Widget */}
+            <div className={`liquid-glass rounded-3xl p-6 sm:p-8 border flex flex-col md:flex-row items-stretch justify-between gap-6 ${isRedMode ? 'border-red-500/10 shadow-[0_4px_24px_rgba(255, 0, 0,0.03)] bg-red-950/5' : 'border-white/10'}`}>
+              <div className="flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Music className={`w-4 h-4 ${isRedMode ? 'text-red-500 animate-pulse' : 'text-yellow-500 animate-pulse'}`} />
+                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Миний Сүлд Дуу / My Suno Track</span>
+                  </div>
+                  <h3 className="text-3xl font-normal text-white mb-2 animate-pulse" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                    Bolderdene's Cosmic Anthem
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/60 leading-relaxed font-sans mb-4">
+                    Би өөрийн бүтээлүүд болон энэхүү дижитал орон зайд зориулж Suno ашиглан гүн уур амьсгалтай, сансрын аялгууг зохиосон юм. Энэхүү аялгуу нь миний код бичих, мөрөөдөх аяллыг илэрхийлдэг.
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-3 text-[10px] font-mono text-white/40 border-t border-white/5 pt-4 mt-2">
+                  <span>ЖАНР: AMBIENT / ELECTRONIC</span>
+                  <span>•</span>
+                  <span>CREATED VIA: SUNO AI</span>
+                </div>
+              </div>
+
+              <div className="md:w-96 flex flex-col justify-center bg-black/25 rounded-2xl p-2 border border-white/5 relative group overflow-hidden">
+                <iframe 
+                  src="https://suno.com/embed/DuJLqZH8oVdjPzxd" 
+                  width="100%" 
+                  height="145" 
+                  style={{ width: '100%', borderRadius: '12px', border: 'none', overflow: 'hidden', background: 'transparent' }} 
+                  frameBorder="0" 
+                  allow="clipboard-write; gamepad; microphone; picture-in-picture; encrypted-media; gyroscope; accelerometer; play-share"
+                  title="Bolderdene Suno Audio"
+                />
+              </div>
             </div>
 
             {/* Micro achievement indicators */}
@@ -850,51 +920,99 @@ export default function App() {
               </button>
             </div>
 
-            {/* Current Song Display */}
-            <div className="flex flex-col gap-1.5 bg-white/5 rounded-xl p-3 border border-white/5">
-              <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Одоо Тоглож буй / NOW PLAYING</span>
-              <div className="text-xs font-medium truncate text-white" title={songTitle}>
-                {songTitle}
-              </div>
-            </div>
-
-            {/* Controls */}
-            <div className="flex items-center justify-between gap-4">
-              <button 
-                onClick={handlePlayPause}
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 ${
-                  isPlaying 
-                    ? (isRedMode ? 'bg-red-500 text-white shadow-[0_0_12px_#ff0000]' : 'bg-yellow-500 text-black shadow-[0_0_12px_rgba(234,179,8,0.5)]')
-                    : 'bg-white/10 hover:bg-white/20 text-white'
+            {/* Source Switcher */}
+            <div className="flex gap-1.5 p-1 bg-white/5 rounded-xl border border-white/5 text-[9px] font-mono">
+              <button
+                onClick={() => {
+                  setActiveMusicSource('suno');
+                  setIsPlaying(false);
+                }}
+                className={`flex-1 py-1.5 rounded-lg text-center transition-all duration-300 cursor-pointer ${
+                  activeMusicSource === 'suno'
+                    ? 'bg-white/10 text-white font-semibold shadow-inner'
+                    : 'text-white/40 hover:text-white'
                 }`}
               >
-                {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
+                🎵 SUNO ANTHEM
               </button>
-
-              {/* Volume Slider */}
-              <div className="flex items-center gap-2 flex-1">
-                <button 
-                  onClick={handleMuteToggle}
-                  className="text-white/50 hover:text-white transition-colors"
-                >
-                  {isMusicMuted || musicVolume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                </button>
-                <input 
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={isMusicMuted ? 0 : musicVolume}
-                  onChange={(e) => {
-                    setMusicVolume(parseFloat(e.target.value));
-                    if (isMusicMuted) setIsMusicMuted(false);
-                  }}
-                  className={`h-1 rounded-lg appearance-none cursor-pointer bg-white/10 accent-current flex-1 ${
-                    isRedMode ? 'text-red-500' : 'text-yellow-500'
-                  }`}
-                />
-              </div>
+              <button
+                onClick={() => setActiveMusicSource('helix')}
+                className={`flex-1 py-1.5 rounded-lg text-center transition-all duration-300 cursor-pointer ${
+                  activeMusicSource === 'helix'
+                    ? 'bg-white/10 text-white font-semibold shadow-inner'
+                    : 'text-white/40 hover:text-white'
+                }`}
+              >
+                📻 AMBIENT SYNTH
+              </button>
             </div>
+
+            {activeMusicSource === 'suno' ? (
+              <div className="flex flex-col gap-2">
+                <div className="bg-white/5 rounded-xl p-1 border border-white/5 overflow-hidden">
+                  <iframe 
+                    src="https://suno.com/embed/DuJLqZH8oVdjPzxd" 
+                    width="100%" 
+                    height="130" 
+                    style={{ width: '100%', borderRadius: '10px', border: 'none', overflow: 'hidden', background: 'transparent' }} 
+                    frameBorder="0" 
+                    allow="clipboard-write; gamepad; microphone; picture-in-picture; encrypted-media; gyroscope; accelerometer; play-share"
+                    title="Bolderdene Suno Audio Floating"
+                  />
+                </div>
+                <div className="text-[9px] font-mono text-center text-white/30 uppercase tracking-widest mt-0.5">
+                  Compose your thoughts in deep resonance
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Current Song Display */}
+                <div className="flex flex-col gap-1.5 bg-white/5 rounded-xl p-3 border border-white/5">
+                  <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Одоо Тоглож буй / NOW PLAYING</span>
+                  <div className="text-xs font-medium truncate text-white" title={songTitle}>
+                    {songTitle}
+                  </div>
+                </div>
+
+                {/* Controls */}
+                <div className="flex items-center justify-between gap-4">
+                  <button 
+                    onClick={handlePlayPause}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 ${
+                      isPlaying 
+                        ? (isRedMode ? 'bg-red-500 text-white shadow-[0_0_12px_#ff0000]' : 'bg-yellow-500 text-black shadow-[0_0_12px_rgba(234,179,8,0.5)]')
+                        : 'bg-white/10 hover:bg-white/20 text-white'
+                    }`}
+                  >
+                    {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
+                  </button>
+
+                  {/* Volume Slider */}
+                  <div className="flex items-center gap-2 flex-1">
+                    <button 
+                      onClick={handleMuteToggle}
+                      className="text-white/50 hover:text-white transition-colors"
+                    >
+                      {isMusicMuted || musicVolume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                    </button>
+                    <input 
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.01"
+                      value={isMusicMuted ? 0 : musicVolume}
+                      onChange={(e) => {
+                        setMusicVolume(parseFloat(e.target.value));
+                        if (isMusicMuted) setIsMusicMuted(false);
+                      }}
+                      className={`h-1 rounded-lg appearance-none cursor-pointer bg-white/10 accent-current flex-1 ${
+                        isRedMode ? 'text-red-500' : 'text-yellow-500'
+                      }`}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         ) : (
           <button 
