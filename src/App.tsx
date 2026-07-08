@@ -297,7 +297,7 @@ export default function App() {
           </div>
 
           {/* Desktop Right action items (Red theme switch & Contact CTA) */}
-          <div id="desktop-actions" className="hidden md:flex items-center gap-4">
+          <div id="desktop-actions" className="hidden md:flex items-center gap-4 ml-8 lg:ml-14">
             
             {/* Interactive Sunset Theme Custom Controller */}
             <button
@@ -358,7 +358,7 @@ export default function App() {
         {mobileMenuOpen && (
           <div
             id="mobile-menu-dropdown"
-            className="absolute top-full left-0 right-0 mx-6 mt-1 rounded-3xl liquid-glass border border-white/10 z-50 p-6 flex flex-col gap-4 animate-fade-rise"
+            className="absolute top-full left-0 right-0 mx-6 mt-1 rounded-3xl liquid-glass border border-white/10 z-50 p-5 flex flex-row flex-wrap justify-center gap-2.5 animate-fade-rise"
           >
             {navLinks.map((link) => {
               if (link === '⌨️ Typeracer') {
@@ -370,7 +370,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-left text-lg py-2 transition-all duration-200 border-b border-white/5 last:border-b-0 text-muted-foreground hover:text-white"
+                    className="text-xs px-3.5 py-2 rounded-full border border-white/5 bg-white/5 text-muted-foreground hover:text-white transition-all duration-200 font-medium"
                   >
                     {link}
                   </a>
@@ -384,10 +384,10 @@ export default function App() {
                     setActiveLink(link);
                     setMobileMenuOpen(false);
                   }}
-                  className={`text-left text-lg py-2 transition-all duration-200 border-b border-white/5 last:border-b-0 ${
+                  className={`text-xs px-3.5 py-2 rounded-full border transition-all duration-200 cursor-pointer font-medium ${
                     activeLink === link
-                      ? 'text-foreground font-semibold pl-2 border-l-2 border-white'
-                      : 'text-muted-foreground'
+                      ? 'bg-white/10 text-foreground border-white/20 font-semibold'
+                      : 'bg-white/5 border-white/5 text-muted-foreground hover:text-white'
                   }`}
                 >
                   {link}
@@ -400,7 +400,7 @@ export default function App() {
                 setMobileMenuOpen(false);
                 setActiveLink('Contact Me');
               }}
-              className="liquid-glass rounded-2xl w-full py-4 text-center text-base font-semibold text-foreground mt-2 active:scale-95 transition-all duration-300"
+              className="liquid-glass rounded-full w-full py-3 text-center text-xs font-semibold uppercase tracking-wider text-foreground mt-2 active:scale-95 transition-all duration-300 cursor-pointer"
             >
               Contact Me
             </button>
